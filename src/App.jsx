@@ -43,12 +43,15 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {['Services', 'Work', 'Process', 'Pricing'].map((item) => (
+          {['About', 'Services', 'Work', 'Process'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               {item}
             </a>
           ))}
-          <button className="px-5 py-2.5 rounded-full bg-white text-slate-950 font-semibold text-sm hover:bg-slate-200 transition-all hover:scale-105">
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-5 py-2.5 rounded-full bg-white text-slate-950 font-semibold text-sm hover:bg-slate-200 transition-all hover:scale-105"
+          >
             Get Started
           </button>
         </div>
@@ -65,12 +68,23 @@ const Navbar = () => {
           className="md:hidden bg-slate-950 border-b border-white/10"
         >
           <div className="px-6 py-4 flex flex-col gap-4">
-            {['Services', 'Work', 'Process', 'Pricing'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-slate-300 font-medium py-2">
+            {['About', 'Services', 'Work', 'Process'].map((item) => (
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                onClick={() => setIsOpen(false)}
+                className="text-slate-300 font-medium py-2"
+              >
                 {item}
               </a>
             ))}
-            <button className="w-full py-3 rounded-full bg-white text-slate-950 font-semibold">
+            <button 
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                setIsOpen(false);
+              }}
+              className="w-full py-3 rounded-full bg-white text-slate-950 font-semibold"
+            >
               Get Started
             </button>
           </div>
@@ -129,7 +143,10 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center gap-4"
           >
-            <button className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/30 transition-all hover:scale-105 flex items-center gap-2">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/30 transition-all hover:scale-105 flex items-center gap-2"
+            >
               Let's Build Something
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -161,6 +178,129 @@ const Hero = () => {
               </div>
             ))}
           </motion.div> */}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const About = () => {
+  return (
+    <section id="about" className="py-24 bg-slate-900">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                We Bring <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Creativity</span> to Life
+              </h2>
+              <p className="text-slate-400 text-lg mb-6 leading-relaxed">
+                At Hoverixio, we don't just build websites - we craft digital experiences that make people stop and stare.
+              </p>
+              <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+                Every pixel is carefully placed, every animation is thoughtfully designed, and every interaction feels magical.
+              </p>
+              
+              <div className="space-y-4">
+                {[
+                  "🎨 Creative UI/UX Design",
+                  "⚡ Blazing Fast Performance",
+                  "📱 100% Responsive",
+                  "🔒 Secure & Reliable"
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                    <span className="text-slate-200 font-medium">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+          
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-xl opacity-30" />
+              <div className="relative bg-slate-950 rounded-3xl p-8 border border-white/10 overflow-hidden">
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, 2, -2, 0]
+                  }}
+                  transition={{ 
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="flex items-center justify-center h-64"
+                >
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">✨</div>
+                    <div className="text-2xl font-bold text-white mb-2">Creative Minds</div>
+                    <div className="text-slate-400">Building Digital Magic</div>
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  animate={{ 
+                    x: [0, 20, 0],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute top-4 left-4 w-8 h-8 bg-blue-500/20 rounded-full"
+                />
+                
+                <motion.div
+                  animate={{ 
+                    y: [0, -15, 0],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5
+                  }}
+                  className="absolute top-8 right-8 w-6 h-6 bg-purple-500/20 rounded-full"
+                />
+                
+                <motion.div
+                  animate={{ 
+                    x: [0, -15, 0],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1
+                  }}
+                  className="absolute bottom-8 left-8 w-4 h-4 bg-pink-500/20 rounded-full"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -235,6 +375,14 @@ const Services = () => {
 
 const Work = () => {
   const [selectedProject, setSelectedProject] = React.useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % laptopImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
   
   const laptopImages = [
     "/projects/laptopView/Screenshot 2026-05-16 005129.png",
@@ -377,30 +525,46 @@ const Work = () => {
                       </div>
                     </div>
                     
-                    <div className="order-1 lg:order-2 relative">
+                    <div className="order-1 lg:order-2">
                       <div className="relative">
                         <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                        <div className="relative bg-slate-950 rounded-3xl p-4 border border-white/10">
-                          <div className="relative overflow-hidden rounded-2xl">
-                            <img 
-                              src={project.laptopImage} 
-                              alt={`${project.title} laptop view`} 
-                              className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
-                            />
-                          </div>
-                          <div className="absolute -bottom-6 -right-6 w-32 h-56 bg-slate-950 rounded-2xl p-2 border border-white/10 shadow-xl">
-                            <div className="relative overflow-hidden rounded-xl">
-                              <img 
-                                src={project.mobileImage} 
-                                alt={`${project.title} mobile view`} 
-                                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
-                              />
+                        <div className="relative bg-slate-950 rounded-3xl p-4 border border-white/10 overflow-hidden">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="col-span-2 overflow-hidden">
+                              <motion.div
+                                key={currentImageIndex}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{ duration: 0.5 }}
+                              >
+                                <img 
+                                  src={laptopImages[currentImageIndex]} 
+                                  alt={`${project.title} laptop view`} 
+                                  className="w-full h-auto rounded-xl"
+                                />
+                              </motion.div>
+                            </div>
+                            <div className="overflow-hidden">
+                              <motion.div
+                                key={currentImageIndex}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                              >
+                                <img 
+                                  src={mobileImages[currentImageIndex % mobileImages.length]} 
+                                  alt={`${project.title} mobile view`} 
+                                  className="w-full h-auto rounded-xl"
+                                />
+                              </motion.div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                </div>
                 </div>
               </motion.div>
             ))}
@@ -444,9 +608,9 @@ const WhyUs = () => {
   const reasons = [
     "Get found on Google - We help you with ads and SEO so your business shows up when people search",
     "Impressive college projects that help you stand out to professors and future employers",
+    "Affordable Prices - Budget-friendly for everyone",
     "Modern UI-first approach to every project",
     "Fast delivery cycles without sacrificing quality",
-    "Affordable startup-friendly pricing",
     "Mobile-first development guaranteed",
     "Ongoing support after deployment"
   ];
@@ -564,6 +728,99 @@ const Process = () => {
   );
 };
 
+const Testimonials = () => {
+  const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
+  
+  const testimonials = [
+    {
+      name: "Rakesh Achar",
+      image: "/projects/people/Rakesh Achar.jpeg",
+      review: "Hoverixio did an amazing job with my website! The design is modern and the performance is great. Highly recommend!"
+    },
+    {
+      name: "Shivu",
+      image: "/projects/people/Rakesh Achar.jpeg",
+      review: "Professional team! They understood my requirements perfectly and delivered a beautiful website. 10/10 experience!"
+    },
+    {
+      name: "Hemant",
+      image: "/projects/people/Rakesh Achar.jpeg",
+      review: "Outstanding work! My college project turned out way better than I expected. The animations are super smooth!"
+    },
+    {
+      name: "Karthik",
+      image: "/projects/people/Rakesh Achar.jpeg",
+      review: "Great service! They helped me get my business online and even guided me with Google Ads. My sales increased!"
+    },
+    {
+      name: "Pavan",
+      image: "/projects/people/Rakesh Achar.jpeg",
+      review: "Creative and reliable! The website they built is exactly what I wanted. Communication was smooth throughout the project."
+    }
+  ];
+  
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+  
+  return (
+    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">What Our Clients Say</h2>
+          <p className="text-slate-400 text-lg">Hear from the people who trusted us</p>
+        </div>
+        
+        <div className="relative">
+          <motion.div
+            key={currentTestimonial}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6 }}
+            className="bg-slate-900/60 p-8 rounded-3xl border border-white/10 text-center"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <img 
+                src={testimonials[currentTestimonial].image} 
+                alt={testimonials[currentTestimonial].name}
+                className="w-20 h-20 rounded-full object-cover border-2 border-blue-500"
+              />
+            </div>
+            <p className="text-xl text-slate-300 mb-6 leading-relaxed">
+              "{testimonials[currentTestimonial].review}"
+            </p>
+            <div className="text-lg font-bold text-white">
+              {testimonials[currentTestimonial].name}
+            </div>
+            <div className="flex items-center justify-center gap-1 mt-2">
+              {[1,2,3,4,5].map((star) => (
+                <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+              ))}
+            </div>
+          </motion.div>
+          
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentTestimonial(idx)}
+                className={cn(
+                  "w-3 h-3 rounded-full transition-all",
+                  idx === currentTestimonial ? "bg-gradient-to-r from-blue-500 to-purple-500 w-8" : "bg-slate-600 hover:bg-slate-500"
+                )}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const TechStack = () => {
   const techs = [
     { name: "React", icon: <Code2 className="w-6 h-6" /> },
@@ -585,89 +842,6 @@ const TechStack = () => {
             <div key={i} className="flex flex-col items-center gap-2 text-slate-400 hover:text-white transition-colors cursor-default">
               {tech.icon}
               <span className="font-medium">{tech.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Pricing = () => {
-  const plans = [
-    {
-      name: "Starter Website",
-      price: "₹5,999",
-      period: "one-time",
-      features: ["5 Pages Design", "Responsive Layout", "Basic SEO Setup", "Contact Form", "1 Month Support"],
-      popular: false
-    },
-    {
-      name: "Business Website",
-      price: "₹14,999",
-      period: "one-time",
-      features: ["10 Pages Design", "CMS Integration", "Advanced SEO", "Blog Section", "3 Months Support", "Analytics Setup"],
-      popular: true
-    },
-    {
-      name: "Custom Web App",
-      price: "Custom",
-      period: "quote",
-      features: ["Full-Stack Development", "Unlimited Features", "Scalable Architecture", "Priority Support", "Dedicated Developer", "SLA Guarantee"],
-      popular: false
-    }
-  ];
-
-  return (
-    <section id="pricing" className="py-24 bg-slate-950">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-slate-400 text-lg">No hidden fees. No surprises.</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, i) => (
-            <div 
-              key={i} 
-              className={cn(
-                "relative p-8 rounded-3xl border transition-all",
-                plan.popular 
-                  ? "bg-gradient-to-b from-blue-900/30 to-slate-900 border-blue-500/50 scale-105 shadow-2xl shadow-blue-900/20" 
-                  : "bg-slate-900 border-white/10 hover:border-white/20"
-              )}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-bold uppercase tracking-wider">
-                  Most Popular
-                </div>
-              )}
-              
-              <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">{plan.price}</span>
-                {plan.period !== "quote" && (
-                  <span className="text-slate-500 ml-2">/{plan.period}</span>
-                )}
-              </div>
-              
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feat, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">{feat}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <button className={cn(
-                "w-full py-3 rounded-full font-semibold transition-all",
-                plan.popular 
-                  ? "bg-white text-slate-950 hover:bg-slate-200" 
-                  : "bg-white/10 text-white hover:bg-white/20"
-              )}>
-                Get Started
-              </button>
             </div>
           ))}
         </div>
@@ -849,12 +1023,13 @@ const App = () => {
       <Navbar />
       <main>
         <Hero />
+        <About />
         <Services />
         <Work />
+        <Testimonials />
         <WhyUs />
         <Process />
         <TechStack />
-        <Pricing />
         <Contact />
       </main>
       <Footer />
