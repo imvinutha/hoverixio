@@ -748,8 +748,8 @@ const Testimonials = () => {
       review: "Outstanding work! My college project turned out way better than I expected. The animations are super smooth!"
     },
     {
-      name: "Karthik",
-      image: "/projects/people/Rakesh Achar.jpeg",
+      name: "Abhijeet",
+      image: "/projects/people/Abhijeet.jpeg",
       review: "Great service! They helped me get my business online and even guided me with Google Ads. My sales increased!"
     },
     {
