@@ -739,12 +739,12 @@ const Testimonials = () => {
     },
     {
       name: "Shivu",
-      image: "/projects/people/Rakesh Achar.jpeg",
+      image: "/projects/people/shivu.jpeg",
       review: "Professional team! They understood my requirements perfectly and delivered a beautiful website. 10/10 experience!"
     },
     {
       name: "Hemant",
-      image: "/projects/people/Rakesh Achar.jpeg",
+      image: "/projects/people/Hemanth.jpeg",
       review: "Outstanding work! My college project turned out way better than I expected. The animations are super smooth!"
     },
     {
@@ -754,7 +754,7 @@ const Testimonials = () => {
     },
     {
       name: "Pavan",
-      image: "/projects/people/Rakesh Achar.jpeg",
+      image: "/projects/people/pavan.jpeg",
       review: "Creative and reliable! The website they built is exactly what I wanted. Communication was smooth throughout the project."
     }
   ];
