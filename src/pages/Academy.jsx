@@ -25,7 +25,7 @@ const Academy = () => {
             <p className="text-xl text-slate-400 leading-relaxed mb-8">
               Master modern web development with our comprehensive courses and mentorship programs.
             </p>
-            <div className="flex justify-center gap-8">
+            {/* <div className="flex justify-center gap-8">
               <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-1">500+</div>
                 <div className="text-slate-500 text-sm uppercase tracking-wider">Students Trained</div>
@@ -38,7 +38,7 @@ const Academy = () => {
                 <div className="text-4xl font-bold text-white mb-1">50+</div>
                 <div className="text-slate-500 text-sm uppercase tracking-wider">Hiring Partners</div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -176,11 +176,11 @@ const Academy = () => {
               >
                 <p className="text-slate-300 mb-6 leading-relaxed">"{testimonial.review}"</p>
                 <div className="flex items-center gap-4">
-                  <img 
+                  {/* <img 
                     src={testimonial.image} 
                     alt={testimonial.name} 
                     className="w-14 h-14 rounded-full object-cover border-2 border-purple-500"
-                  />
+                  /> */}
                   <div>
                     <h4 className="text-lg font-bold text-white">{testimonial.name}</h4>
                     <p className="text-slate-400 text-sm">{testimonial.role} at {testimonial.placedAt}</p>

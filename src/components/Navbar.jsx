@@ -63,7 +63,7 @@ const Navbar = () => {
                   
                   <div 
                     className={cn(
-                      "absolute top-full left-0 mt-2 w-64 bg-slate-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300",
+                      "absolute top-full left-0 mt-0.3 w-64 bg-slate-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300",
                       activeDropdown === item.name ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                     )}
                   >

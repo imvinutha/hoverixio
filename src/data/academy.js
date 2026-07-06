@@ -181,7 +181,7 @@ export const studentTestimonials = [
     placedAt: "Tech Startup",
     role: "Junior Developer",
     review: "The MERN stack course was amazing! The instructors were great and the hands-on projects really helped me learn.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
+    // image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
   },
   {
     id: 2,
@@ -190,6 +190,6 @@ export const studentTestimonials = [
     placedAt: "MNC",
     role: "Software Engineer",
     review: "I went from zero coding experience to landing my dream job in just 6 months. Highly recommend this course!",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+    // image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
   },
 ];
