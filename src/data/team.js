@@ -1,0 +1,35 @@
+export const team = [
+  {
+    id: 1,
+    name: "Vinutha",
+    role: "Founder & Lead Developer",
+    image: "/projects/people/Vinutha.jpg",
+    bio: "Full-stack developer with 5+ years of experience in building modern web applications.",
+    linkedin: "www.linkedin.com/in/vinutha-k-36a739192",
+    github: "https://github.com/imvinutha",
+  },
+  // {
+  //   id: 2,
+  //   name: "John Doe",
+  //   role: "UI/UX Designer",
+  //   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces",
+  //   bio: "Creative designer specializing in user-centered design and interactive experiences.",
+  //   linkedin: "#",
+  // },
+  // {
+  //   id: 3,
+  //   name: "Jane Smith",
+  //   role: "Backend Developer",
+  //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
+  //   bio: "Expert in Node.js, MongoDB, and building scalable backend systems.",
+  //   linkedin: "#",
+  // },
+  {
+    id: 2,
+    name: "Hemanth Kumar AR",
+    role: "Mobile & Backend Developer",
+    image: "/projects/people/Hemanth.jpeg",
+    bio: "React Native specialist with experience in building cross-platform mobile apps.",
+    linkedin: "#",
+  },
+];

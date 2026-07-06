@@ -1,0 +1,42 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: "Rakesh Achar",
+    role: "Business Owner",
+    image: "/projects/people/Rakesh Achar.jpeg",
+    review: "Hoverixio did an amazing job with my website! The design is modern and the performance is great. Highly recommend!",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Shivu",
+    role: "Entrepreneur",
+    image: "/projects/people/shivu.jpeg",
+    review: "Professional team! They understood my requirements perfectly and delivered a beautiful website. 10/10 experience!",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Gagana",
+    role: "Student",
+    image: "/projects/people/gagana.png",
+    review: "Outstanding work! My college project turned out way better than I expected. The animations are super smooth!",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Abhijeet",
+    role: "Startup Founder",
+    image: "/projects/people/Abhijeet.jpeg",
+    review: "Great service! They helped me get my business online and even guided me with Google Ads. My sales increased!",
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: "Pavan",
+    role: "Product Manager",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+    review: "Creative and reliable! The website they built is exactly what I wanted. Communication was smooth throughout the project.",
+    rating: 5,
+  },
+];
