@@ -6,7 +6,7 @@ export const academyCourses = [
     description: "Learn full-stack development with MongoDB, Express, React, and Node.js.",
     duration: "3 Months",
     level: "Intermediate",
-    price: "₹29,999",
+    price: "₹20,000",
     features: [
       "Live Classes",
       "Hands-on Projects",
@@ -67,7 +67,7 @@ export const academyCourses = [
         content: ["Resume Building", "Interview Prep", "Mock Interviews"],
       },
     ],
-    image: "https://images.unsplash.com/photo-1516116216624-53e69fe44d94?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop",
   },
   {
     id: 2,
@@ -76,7 +76,7 @@ export const academyCourses = [
     description: "Comprehensive course covering frontend, backend, and everything in between.",
     duration: "6 Months",
     level: "Beginner to Advanced",
-    price: "₹49,999",
+    price: "₹25,000",
     features: [
       "Live Classes",
       "Multiple Projects",
@@ -140,6 +140,76 @@ export const academyCourses = [
     ],
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop",
   },
+  {
+    id: 3,
+    slug: "ethical-hacking",
+    title: "Ethical Hacking & Cybersecurity",
+    description: "Learn ethical hacking, penetration testing, and cybersecurity fundamentals to protect systems and networks.",
+    duration: "4 Months",
+    level: "Beginner to Intermediate",
+    price: "₹18,000",
+    features: [
+      "Live Hands-on Labs",
+      "Real-World Projects",
+      "1:1 Mentorship",
+      "Certification",
+      "Lifetime Access",
+      "Career Guidance",
+    ],
+    curriculum: [
+      {
+        week: 1,
+        topic: "Introduction to Cybersecurity",
+        content: ["Security Fundamentals", "Types of Attacks", "Ethical Hacking Overview"],
+      },
+      {
+        week: 2,
+        topic: "Networking Basics",
+        content: ["TCP/IP", "Network Protocols", "Network Scanning"],
+      },
+      {
+        week: 3,
+        topic: "Linux Fundamentals",
+        content: ["Linux Commands", "File Systems", "Shell Scripting"],
+      },
+      {
+        week: 4,
+        topic: "Reconnaissance",
+        content: ["Passive Recon", "Active Recon", "OSINT Tools"],
+      },
+      {
+        week: 5,
+        topic: "Scanning & Enumeration",
+        content: ["Nmap", "Metasploit Basics", "Service Enumeration"],
+      },
+      {
+        week: 6,
+        topic: "Web Application Security",
+        content: ["OWASP Top 10", "XSS", "SQL Injection"],
+      },
+      {
+        week: 7,
+        topic: "Exploitation",
+        content: ["Exploit Development", "Post-Exploitation", "Privilege Escalation"],
+      },
+      {
+        week: 8,
+        topic: "Wireless Security",
+        content: ["Wi-Fi Hacking", "WPA/WPA2", "Wireless Attacks"],
+      },
+      {
+        week: 9,
+        topic: "Cryptography",
+        content: ["Encryption Algorithms", "Hashing", "PKI"],
+      },
+      {
+        week: 10,
+        topic: "Capstone Project",
+        content: ["Penetration Testing Report", "Project Presentation"],
+      },
+    ],
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=400&fit=crop",
+  },
 ];
 
 export const studentProjects = [
@@ -171,6 +241,13 @@ export const studentProjects = [
     tech: ["Next.js", "MongoDB", "Tailwind CSS"],
     image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop",
   },
+  {
+    id: 5,
+    title: "Vulnerability Scanner",
+    student: "Arjun Mehta",
+    tech: ["Python", "Nmap", "SQLMap"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+  },
 ];
 
 export const studentTestimonials = [
@@ -181,7 +258,6 @@ export const studentTestimonials = [
     placedAt: "Tech Startup",
     role: "Junior Developer",
     review: "The MERN stack course was amazing! The instructors were great and the hands-on projects really helped me learn.",
-    // image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
   },
   {
     id: 2,
@@ -190,6 +266,13 @@ export const studentTestimonials = [
     placedAt: "MNC",
     role: "Software Engineer",
     review: "I went from zero coding experience to landing my dream job in just 6 months. Highly recommend this course!",
-    // image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+  },
+  {
+    id: 3,
+    name: "Arjun Mehta",
+    course: "Ethical Hacking",
+    placedAt: "Cybersecurity Firm",
+    role: "Security Analyst",
+    review: "The ethical hacking course gave me practical skills that employers are looking for. The lab environment was fantastic!",
   },
 ];

@@ -71,7 +71,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed"
             >
-              We build modern websites, web applications, and mobile apps that help your business grow and succeed online.
+              We build modern websites, web applications, and mobile apps at really affordable prices! Prices depend on your requirements - we're here to help your business grow and succeed online.
             </motion.p>
 
             <motion.div
@@ -237,7 +237,7 @@ const Home = () => {
                 {[
                   "Expert team with 5+ years of experience",
                   "Modern, cutting-edge technologies",
-                  "Affordable pricing for everyone",
+                  "Really affordable prices - tailored to your requirements",
                   "Fast delivery without compromising quality",
                   "100% satisfaction guarantee",
                   "Ongoing support after deployment",

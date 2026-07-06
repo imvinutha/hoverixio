@@ -2,7 +2,7 @@ export const pricingPlans = [
   {
     id: 1,
     name: "Starter Website",
-    price: "₹19,999",
+    price: "₹9,999",
     period: "one-time",
     description: "Perfect for small businesses and startups",
     features: [
@@ -19,7 +19,7 @@ export const pricingPlans = [
   {
     id: 2,
     name: "Business Website",
-    price: "₹49,999",
+    price: "₹19,999",
     period: "one-time",
     description: "Ideal for growing businesses",
     features: [
@@ -38,7 +38,7 @@ export const pricingPlans = [
   {
     id: 3,
     name: "Premium Website",
-    price: "₹99,999",
+    price: "₹34,999",
     period: "one-time",
     description: "For businesses that need the best",
     features: [
@@ -58,7 +58,7 @@ export const pricingPlans = [
   {
     id: 4,
     name: "E-commerce Store",
-    price: "₹1,49,999",
+    price: "₹49,999",
     period: "one-time",
     description: "Complete online store solution",
     features: [
@@ -78,7 +78,7 @@ export const pricingPlans = [
   {
     id: 5,
     name: "Mobile App",
-    price: "₹2,99,999",
+    price: "₹79,999",
     period: "one-time",
     description: "iOS & Android app development",
     features: [
@@ -97,9 +97,9 @@ export const pricingPlans = [
   {
     id: 6,
     name: "Custom Software",
-    price: "Custom",
+    price: "Depends on Requirements",
     period: "project-based",
-    description: "Tailored solutions for your needs",
+    description: "Tailored solutions for your needs - really affordable!",
     features: [
       "Custom Requirements",
       "Scalable Architecture",

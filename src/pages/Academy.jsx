@@ -160,11 +160,11 @@ const Academy = () => {
 
       {/* Student Testimonials */}
       <section className="py-20 bg-slate-950">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">What Our Students Say</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {studentTestimonials.map((testimonial, i) => (
               <motion.div
                 key={testimonial.id}
@@ -172,19 +172,12 @@ const Academy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-3xl bg-slate-900 border border-white/10"
+                className="p-8 rounded-3xl bg-white/5 border border-white/10 text-center"
               >
                 <p className="text-slate-300 mb-6 leading-relaxed">"{testimonial.review}"</p>
-                <div className="flex items-center gap-4">
-                  {/* <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name} 
-                    className="w-14 h-14 rounded-full object-cover border-2 border-purple-500"
-                  /> */}
-                  <div>
-                    <h4 className="text-lg font-bold text-white">{testimonial.name}</h4>
-                    <p className="text-slate-400 text-sm">{testimonial.role} at {testimonial.placedAt}</p>
-                  </div>
+                <div>
+                  <h4 className="text-lg font-bold text-white">{testimonial.name}</h4>
+                  <p className="text-slate-400 text-sm">{testimonial.role} at {testimonial.placedAt}</p>
                 </div>
               </motion.div>
             ))}
