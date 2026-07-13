@@ -213,7 +213,7 @@ const Academy = () => {
                   <h3 className="font-bold text-white mb-1">{project.title}</h3>
                   <p className="text-slate-400 text-sm">by {project.student}</p>
                   <div className="flex flex-wrap gap-1 mt-2">
-                    {project.tech.map((tech, j) => (
+                    {project.tech.map((tech, j) => (  
                       <span key={j} className="px-2 py-1 rounded-full bg-white/5 text-slate-400 text-xs">
                         {tech}
                       </span>

@@ -286,50 +286,112 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">What Our Clients Say</h2>
-            <p className="text-slate-400 text-lg">Hear from the people who trusted us</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <motion.div
-                key={testimonial.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-slate-900/60 p-8 rounded-3xl border border-white/10"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, idx) => (
-                    <Star key={idx} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                  "{testimonial.review}"
+      <section className="py-24 bg-gradient-to-b from-slate-900 via-slate-950 to-black overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+        What Our Clients Say
+      </h2>
+      <p className="text-slate-400 text-lg">
+        Hear from the people who trusted us
+      </p>
+    </div>
+
+    <style>
+      {`
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .testimonial-track {
+          display: flex;
+          width: max-content;
+          animation: marquee 35s linear infinite;
+        }
+
+        .testimonial-track:hover {
+          animation-play-state: paused;
+        }
+      `}
+    </style>
+
+    <div className="relative overflow-hidden">
+
+      {/* Left Fade */}
+      <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
+
+      {/* Right Fade */}
+      <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-slate-950 via-slate-950/90 to-transparent" />
+
+      <div className="testimonial-track gap-8 py-2">
+
+        {[...testimonials, ...testimonials].map((testimonial, i) => (
+          <motion.div
+            key={i}
+            whileHover={{
+              y: -8,
+              scale: 1.02,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 250,
+              damping: 18,
+            }}
+            className="w-[380px] flex-shrink-0 rounded-3xl border border-white/10
+                       bg-white/[0.05] backdrop-blur-xl
+                       p-8
+                       shadow-[0_20px_60px_rgba(0,0,0,0.45)]
+                       hover:border-blue-500/40
+                       hover:shadow-blue-500/10
+                       transition-all duration-500"
+          >
+            {/* Stars */}
+            <div className="flex items-center gap-1 mb-5">
+              {[...Array(testimonial.rating)].map((_, idx) => (
+                <Star
+                  key={idx}
+                  className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                />
+              ))}
+            </div>
+
+            {/* Review */}
+            <p className="text-slate-300 leading-8 text-lg mb-8 italic">
+              "{testimonial.review}"
+            </p>
+
+            {/* User */}
+            <div className="flex items-center gap-4">
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-lg shadow-blue-500/20"
+              />
+
+              <div>
+                <h4 className="text-white font-semibold text-lg">
+                  {testimonial.name}
+                </h4>
+                <p className="text-slate-400">
+                  {testimonial.role}
                 </p>
-                <div className="flex items-center gap-4">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-blue-500"
-                  />
-                  <div>
-                    <div className="text-lg font-bold text-white">{testimonial.name}</div>
-                    <div className="text-slate-500">{testimonial.role}</div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Team Section */}
-      <section className="py-24 bg-slate-950">
+      {/* <section className="py-24 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Meet Our Team</h2>
@@ -362,7 +424,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">

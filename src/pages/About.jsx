@@ -200,7 +200,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-slate-950">
+      {/* <section className="py-20 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Meet Our Team</h2>
@@ -234,7 +234,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
