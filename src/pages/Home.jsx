@@ -88,7 +88,7 @@ const Home = () => {
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a 
-                href="https://wa.me/7259800637" 
+                href="https://wa.me/8217453079" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-lg hover:bg-white/10 transition-all flex items-center gap-2 hover:scale-105"
@@ -452,7 +452,7 @@ const Home = () => {
                   Get Free Consultation
                 </Link>
                 <a 
-                  href="https://wa.me/7259800637" 
+                  href="https://wa.me/8217453079" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold text-lg hover:bg-white/10 transition-all flex items-center gap-2"

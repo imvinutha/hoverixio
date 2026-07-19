@@ -24,7 +24,7 @@ Message: ${formData.message}
     `.trim();
     
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    window.open(`https://wa.me/7259800637?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/8217453079?text=${encodedMessage}`, '_blank');
   };
 
   return (
@@ -67,7 +67,7 @@ Message: ${formData.message}
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">Phone / WhatsApp</h3>
-                    <a href="tel:7259800637" className="text-slate-400 hover:text-green-400 transition-colors">
+                    <a href="tel:8217453079" className="text-slate-400 hover:text-green-400 transition-colors">
                       +91 72598 00637
                     </a>
                   </div>
@@ -98,7 +98,7 @@ Message: ${formData.message}
                 <h3 className="text-2xl font-bold text-white mb-6">Connect With Us</h3>
                 <div className="flex gap-4">
                   <a 
-                    href="https://wa.me/7259800637" 
+                    href="https://wa.me/8217453079" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 hover:bg-green-500/30 transition-all"

@@ -80,7 +80,7 @@ const PortfolioDetail = () => {
                   Start Your Project
                 </Link>
                 <a 
-                  href="https://wa.me/7259800637" 
+                  href="https://wa.me/8217453079" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="px-8 py-4 rounded-full border border-white/10 text-white font-semibold text-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2"
