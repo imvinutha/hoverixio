@@ -64,7 +64,7 @@ export const pricingPlans = [
   {
     id: 4,
     name: "E-commerce Store",
-    price: "₹49,999",
+    price: "₹79,999",
     period: "one-time",
     description: "Complete online store - Launch today with FREE Domain + Hosting!",
     badge: "🛒 Best Seller",
@@ -86,7 +86,7 @@ export const pricingPlans = [
   {
     id: 5,
     name: "Mobile App",
-    price: "₹79,999",
+    price: "₹99,999",
     period: "one-time",
     description: "iOS & Android app development - Quality at affordable prices",
     badge: "📱 Mobile First",
