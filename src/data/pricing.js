@@ -2,7 +2,7 @@ export const pricingPlans = [
   {
     id: 1,
     name: "Starter Website",
-    price: "₹9,999",
+    price: "₹20,000",
     period: "one-time",
     description: "Perfect for small businesses & startups - Includes FREE Domain + Hosting!",
     badge: "🎉 FREE Offer",
@@ -21,7 +21,7 @@ export const pricingPlans = [
   {
     id: 2,
     name: "Business Website",
-    price: "₹19,999",
+    price: "₹25,000",
     period: "one-time",
     description: "Ideal for growing businesses - FREE Domain + Hosting Included!",
     badge: "🔥 Most Popular",
@@ -42,7 +42,7 @@ export const pricingPlans = [
   {
     id: 3,
     name: "Premium Website",
-    price: "₹34,999",
+    price: "₹44,999",
     period: "one-time",
     description: "For businesses that demand the best - Big Savings Included!",
     badge: "⭐ Premium",
