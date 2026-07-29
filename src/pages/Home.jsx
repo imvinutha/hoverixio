@@ -32,8 +32,52 @@ function cn(...inputs) {
 const Home = () => {
   return (
     <div className="min-h-screen">
+      {/* Mega Offer Banner */}
+      <section className="relative pt-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-1 mb-10 shadow-2xl shadow-orange-500/20"
+          >
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMjAgMEMyMCA4Ljk1NCAyNy4wNDYgMTYgMzYgMTZIMzZDMjcuMDQ2IDE2IDIwIDIzLjA0NiAyMCAzMkMwIDIzLjA0NiAxMi45NTQgMTYgNCAxNkg0QzEyLjk1NCAxNiAyMCA4Ljk1NCAyMCAweiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+            <div className="relative bg-slate-950/90 backdrop-blur rounded-[22px] px-6 py-5 sm:px-10 sm:py-6">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/40 animate-pulse">
+                    <span className="text-3xl">🎁</span>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs sm:text-sm font-bold tracking-wider uppercase">
+                        Limited Time Offer
+                      </span>
+                      <span className="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs sm:text-sm font-bold">
+                        🔥 Hurry Up!
+                      </span>
+                    </div>
+                    <h3 className="text-white text-lg sm:text-2xl font-bold">
+                      Get <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400">FREE Domain + Hosting</span> for 1 Year!
+                    </h3>
+                    <p className="text-slate-400 text-sm sm:text-base">On all website packages - Launch your business online at zero extra cost!</p>
+                  </div>
+                </div>
+                <Link
+                  to="/pricing"
+                  className="group flex-shrink-0 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold text-base sm:text-lg shadow-lg shadow-orange-500/40 hover:shadow-xl hover:shadow-orange-500/50 transition-all hover:scale-105 flex items-center gap-2 whitespace-nowrap"
+                >
+                  Grab Offer
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pb-20 lg:pb-32 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[100px] -z-10" />
 
@@ -43,13 +87,13 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-pink-500/10 border border-orange-500/30 mb-8"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
               </span>
-              <span className="text-sm font-medium text-slate-300">Accepting new projects for 2024</span>
+              <span className="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-pink-400">🎁 FREE Domain + Hosting with every website!</span>
             </motion.div>
 
             <motion.h1
@@ -71,7 +115,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed"
             >
-              We build modern websites, web applications, and mobile apps at really affordable prices! Prices depend on your requirements - we're here to help your business grow and succeed online.
+              We build modern websites, web applications, and mobile apps at really affordable prices! <span className="text-pink-400 font-semibold">Prices depend on your requirements</span>, and we give you <span className="text-orange-400 font-bold">FREE Domain + Hosting for 1 year</span> on every website project - we're here to help your business grow!
             </motion.p>
 
             <motion.div
@@ -233,8 +277,9 @@ const Home = () => {
               <p className="text-slate-400 text-lg mb-8">
                 We don't just build websites. We build digital assets that drive growth. Here's what makes us different:
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
+                  "🎁 FREE Domain + Hosting for 1 Year with every website",
                   "Expert team with 5+ years of experience",
                   "Modern, cutting-edge technologies",
                   "Really affordable prices - tailored to your requirements",
@@ -250,18 +295,48 @@ const Home = () => {
                     transition={{ delay: i * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                    <div className={cn(
+                      "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0",
+                      i === 0 ? "bg-gradient-to-br from-orange-500 to-pink-500 shadow-lg shadow-orange-500/40" : "bg-blue-500/20"
+                    )}>
+                      <CheckCircle2 className={cn(
+                        "w-5 h-5",
+                        i === 0 ? "text-white" : "text-blue-400"
+                      )} />
                     </div>
-                    <span className="text-slate-200 font-medium">{reason}</span>
+                    <span className={cn(
+                      "font-medium",
+                      i === 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400 text-lg font-bold" : "text-slate-200"
+                    )}>{reason}</span>
                   </motion.div>
                 ))}
               </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative overflow-hidden rounded-2xl p-6 bg-gradient-to-r from-orange-500/10 via-pink-500/10 to-purple-500/10 border border-orange-500/30"
+              >
+                <div className="absolute top-0 right-0 text-8xl opacity-10">🎉</div>
+                <div className="relative">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs font-bold">SPECIAL BONUS</span>
+                  </div>
+                  <h4 className="text-white font-bold text-xl mb-1">Save ₹5,000+ on Domain & Hosting!</h4>
+                  <p className="text-slate-400 text-sm">Launch your business without worrying about extra costs. We handle it all for you for FREE!</p>
+                </div>
+              </motion.div>
             </div>
             
             <div className="relative">
-               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-xl opacity-30" />
+               <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 rounded-3xl blur-xl opacity-20" />
                <div className="relative p-8 rounded-3xl bg-slate-950 border border-white/10">
+                  <div className="relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-orange-500/10 to-pink-500/10 border border-orange-500/20 mb-4">
+                    <div className="absolute top-2 right-2 animate-bounce">🎁</div>
+                    <div className="text-xs text-orange-400 font-bold uppercase tracking-wider mb-2">Our Biggest Offer</div>
+                    <div className="text-3xl font-bold text-white mb-1">₹0 Extra</div>
+                    <div className="text-slate-400 text-sm">Domain + Hosting Included</div>
+                  </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                      <div className="p-6 rounded-2xl bg-white/5 text-center">
                         <div className="text-3xl font-bold text-white mb-1">24h</div>
