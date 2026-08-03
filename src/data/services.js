@@ -7,7 +7,7 @@ const SERVICE_PRICES = {
   'E-commerce Development':     { IN: 149999, DE: 7499, US: 8249, AE: 29999, MY: 37499, SG: 11249,period: '' },
   'SaaS Development':           { IN: 499999, DE: 24999,US: 27499,AE: 99999, MY: 124999,SG: 37499,period: '' },
   'API Development':            { IN: 49999,  DE: 2499, US: 2749, AE: 9999,  MY: 12499, SG: 3749, period: '' },
-  'Maintenance & Support':      { IN: 9999,   DE: 499,  US: 549,  AE: 1999,  MY: 2499,  SG: 749,  period: '/month' },
+  'Maintenance & Support':      { IN: 2000,   DE: 149,  US: 149,  AE: 200,  MY: 300,  SG: 300,  period: '/month' },
 };
 
 export function getServicePriceInfo(serviceName, countryCode = 'IN') {
