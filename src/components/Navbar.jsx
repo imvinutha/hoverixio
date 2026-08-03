@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, MessageCircle } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import CountryCurrencySwitcher from './CountryCurrencySwitcher';
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -94,6 +95,8 @@ const Navbar = () => {
               )}
             </div>
           ))}
+
+          <CountryCurrencySwitcher variant="navbar" />
           
           <Link 
             to="/contact"

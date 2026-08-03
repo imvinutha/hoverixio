@@ -24,12 +24,19 @@ import { twMerge } from 'tailwind-merge';
 import { projects } from '../data/projects';
 import { testimonials } from '../data/testimonials';
 import { team } from '../data/team';
+import { getServicePriceInfo } from '../data/services';
+import { usePricing } from '../utils/pricingContext';
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
 const Home = () => {
+  const { country, countryCode, formatPrice } = usePricing();
+
+  const savingsAmount = {
+    DE: 120, US: 120, AE: 450, MY: 550, SG: 160, IN: 5000
+  }[countryCode] || 5000;
   return (
     <div className="min-h-screen">
       {/* Mega Offer Banner */}
@@ -46,21 +53,27 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/40 animate-pulse">
-                    <span className="text-3xl">🎁</span>
+                    <span className="text-3xl">{country.flag}</span>
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1">
                       <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs sm:text-sm font-bold tracking-wider uppercase">
-                        Limited Time Offer
+                        Limited Time Offer · {country.currency}
                       </span>
                       <span className="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs sm:text-sm font-bold">
                         🔥 Hurry Up!
                       </span>
+                      <span className="px-3 py-1 rounded-full bg-white/5 text-white/80 text-xs sm:text-sm font-bold border border-white/10">
+                        {country.name}
+                      </span>
                     </div>
                     <h3 className="text-white text-lg sm:text-2xl font-bold">
                       Get <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400">FREE Domain + Hosting</span> for 1 Year!
+                      <span className="text-slate-300 text-base sm:text-lg font-semibold ml-2">
+                        (Worth {formatPrice(savingsAmount)}+)
+                      </span>
                     </h3>
-                    <p className="text-slate-400 text-sm sm:text-base">On all website packages - Launch your business online at zero extra cost!</p>
+                    <p className="text-slate-400 text-sm sm:text-base">On all website packages - Prices in {country.currencySymbol} - Launch your business online at zero extra cost!</p>
                   </div>
                 </div>
                 <Link
@@ -181,24 +194,34 @@ const Home = () => {
               { icon: <Palette className="w-6 h-6 text-yellow-400" />, title: "UI/UX Design", description: "User-centric designs that provide exceptional experiences.", link: "/services/ui-ux-design" },
               { icon: <Cpu className="w-6 h-6 text-indigo-400" />, title: "MERN Stack Development", description: "Full-stack solutions using MongoDB, Express, React, and Node.js.", link: "/services/mern-stack-development" },
               { icon: <ShieldCheck className="w-6 h-6 text-green-400" />, title: "Maintenance & Support", description: "Keep your applications running smoothly with our support.", link: "/services/maintenance-support" },
-            ].map((service, i) => (
+            ].map((service, i) => {
+              const { raw, period } = getServicePriceInfo(service.title, countryCode);
+              const displayPrice = raw === null ? 'Custom' : `${formatPrice(raw)}${period}`;
+              return (
               <motion.div
                 key={i}
                 whileHover={{ y: -8 }}
                 as={Link}
                 to={service.link}
-                className="group p-8 rounded-3xl bg-gradient-to-b from-white/5 to-white/0 border border-white/10 hover:border-white/20 transition-all"
+                className="group p-8 rounded-3xl bg-gradient-to-b from-white/5 to-white/0 border border-white/10 hover:border-white/20 transition-all flex flex-col"
               >
                 <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-slate-400 leading-relaxed mb-6">{service.description}</p>
-                <div className="flex items-center gap-2 text-blue-400 font-medium">
-                  Learn More <ArrowUpRight className="w-4 h-4" />
+                <p className="text-slate-400 leading-relaxed mb-4 flex-1">{service.description}</p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Starting</div>
+                    <div className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{displayPrice}</div>
+                  </div>
+                  <div className="flex items-center gap-2 text-blue-400 font-medium">
+                    Learn More <ArrowUpRight className="w-4 h-4" />
+                  </div>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -320,9 +343,9 @@ const Home = () => {
                 <div className="absolute top-0 right-0 text-8xl opacity-10">🎉</div>
                 <div className="relative">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs font-bold">SPECIAL BONUS</span>
+                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs font-bold">SPECIAL BONUS · {country.flag} {country.name}</span>
                   </div>
-                  <h4 className="text-white font-bold text-xl mb-1">Save ₹5,000+ on Domain & Hosting!</h4>
+                  <h4 className="text-white font-bold text-xl mb-1">Save {formatPrice(savingsAmount)}+ on Domain & Hosting!</h4>
                   <p className="text-slate-400 text-sm">Launch your business without worrying about extra costs. We handle it all for you for FREE!</p>
                 </div>
               </motion.div>
@@ -333,8 +356,8 @@ const Home = () => {
                <div className="relative p-8 rounded-3xl bg-slate-950 border border-white/10">
                   <div className="relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-orange-500/10 to-pink-500/10 border border-orange-500/20 mb-4">
                     <div className="absolute top-2 right-2 animate-bounce">🎁</div>
-                    <div className="text-xs text-orange-400 font-bold uppercase tracking-wider mb-2">Our Biggest Offer</div>
-                    <div className="text-3xl font-bold text-white mb-1">₹0 Extra</div>
+                    <div className="text-xs text-orange-400 font-bold uppercase tracking-wider mb-2">Our Biggest Offer · {country.currency}</div>
+                    <div className="text-3xl font-bold text-white mb-1">{formatPrice(0)} Extra</div>
                     <div className="text-slate-400 text-sm">Domain + Hosting Included</div>
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">

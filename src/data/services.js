@@ -1,3 +1,26 @@
+const SERVICE_PRICES = {
+  'Website Development':        { IN: 19999,  DE: 999,  US: 1099, AE: 3999,  MY: 4999,  SG: 1499, period: '' },
+  'Web Application Development':{ IN: 99999,  DE: 4999, US: 5499, AE: 19999, MY: 24999, SG: 7499, period: '' },
+  'Mobile App Development':     { IN: 299999, DE: 14999,US: 16499,AE: 59999, MY: 74999, SG: 22499,period: '' },
+  'UI/UX Design':               { IN: 29999,  DE: 1499, US: 1649, AE: 5999,  MY: 7499,  SG: 2249, period: '' },
+  'MERN Stack Development':     { IN: 149999, DE: 7499, US: 8249, AE: 29999, MY: 37499, SG: 11249,period: '' },
+  'E-commerce Development':     { IN: 149999, DE: 7499, US: 8249, AE: 29999, MY: 37499, SG: 11249,period: '' },
+  'SaaS Development':           { IN: 499999, DE: 24999,US: 27499,AE: 99999, MY: 124999,SG: 37499,period: '' },
+  'API Development':            { IN: 49999,  DE: 2499, US: 2749, AE: 9999,  MY: 12499, SG: 3749, period: '' },
+  'Maintenance & Support':      { IN: 9999,   DE: 499,  US: 549,  AE: 1999,  MY: 2499,  SG: 749,  period: '/month' },
+};
+
+export function getServicePriceInfo(serviceName, countryCode = 'IN') {
+  const info = SERVICE_PRICES[serviceName];
+  if (!info) return { display: 'Custom pricing', raw: null, period: '' };
+  const raw = info[countryCode];
+  if (raw === undefined) return { display: 'Custom pricing', raw: null, period: '' };
+  return {
+    raw,
+    period: info.period,
+  };
+}
+
 export const services = [
   {
     id: 1,
@@ -21,8 +44,8 @@ export const services = [
       { step: 5, title: "Launch", description: "Deploying your website and providing training." },
     ],
     technologies: ["React", "Next.js", "Tailwind CSS", "WordPress", "Shopify"],
-    pricing: "Starting from ₹19,999",
     cta: "Get Quote",
+    priceKey: "Website Development",
   },
   {
     id: 2,
@@ -46,8 +69,8 @@ export const services = [
       { step: 5, title: "Deployment", description: "Launching and monitoring the application." },
     ],
     technologies: ["React", "Node.js", "MongoDB", "Express", "PostgreSQL"],
-    pricing: "Starting from ₹99,999",
     cta: "Get Quote",
+    priceKey: "Web Application Development",
   },
   {
     id: 3,
@@ -71,8 +94,8 @@ export const services = [
       { step: 5, title: "Launch", description: "Submitting to App Store and Google Play." },
     ],
     technologies: ["React Native", "Firebase", "Redux", "Expo"],
-    pricing: "Starting from ₹2,99,999",
     cta: "Get Quote",
+    priceKey: "Mobile App Development",
   },
   {
     id: 4,
@@ -96,8 +119,8 @@ export const services = [
       { step: 5, title: "Testing", description: "Conducting usability testing." },
     ],
     technologies: ["Figma", "Adobe XD", "Sketch", "InVision"],
-    pricing: "Starting from ₹29,999",
     cta: "Get Quote",
+    priceKey: "UI/UX Design",
   },
   {
     id: 5,
@@ -121,8 +144,8 @@ export const services = [
       { step: 5, title: "Integration", description: "Connecting everything and testing." },
     ],
     technologies: ["MongoDB", "Express", "React", "Node.js", "Redux"],
-    pricing: "Starting from ₹1,49,999",
     cta: "Get Quote",
+    priceKey: "MERN Stack Development",
   },
   {
     id: 6,
@@ -146,8 +169,8 @@ export const services = [
       { step: 5, title: "Launch", description: "Going live with your store." },
     ],
     technologies: ["React", "Next.js", "Stripe", "MongoDB", "Shopify"],
-    pricing: "Starting from ₹1,49,999",
     cta: "Get Quote",
+    priceKey: "E-commerce Development",
   },
   {
     id: 7,
@@ -171,8 +194,8 @@ export const services = [
       { step: 5, title: "Launch", description: "Launching and scaling your SaaS." },
     ],
     technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
-    pricing: "Starting from ₹4,99,999",
     cta: "Get Quote",
+    priceKey: "SaaS Development",
   },
   {
     id: 8,
@@ -196,8 +219,8 @@ export const services = [
       { step: 5, title: "Testing", description: "Thorough testing and optimization." },
     ],
     technologies: ["Node.js", "Express", "GraphQL", "PostgreSQL", "Redis"],
-    pricing: "Starting from ₹49,999",
     cta: "Get Quote",
+    priceKey: "API Development",
   },
   {
     id: 9,
@@ -221,7 +244,7 @@ export const services = [
       { step: 5, title: "Reporting", description: "Providing regular progress reports." },
     ],
     technologies: ["Monitoring Tools", "CI/CD", "Analytics"],
-    pricing: "Starting from ₹9,999/month",
     cta: "Get Quote",
+    priceKey: "Maintenance & Support",
   },
 ];

@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Layout, Code2, Smartphone, Palette, Cpu, ShoppingCart, Cloud, Server, Wrench, ArrowUpRight } from 'lucide-react';
-import { services } from '../data/services';
+import { services, getServicePriceInfo } from '../data/services';
+import { usePricing } from '../utils/pricingContext';
+import CountryCurrencySwitcher from '../components/CountryCurrencySwitcher';
 
 const iconMap = {
   Layout: <Layout className="w-6 h-6 text-blue-400" />,
@@ -17,10 +19,12 @@ const iconMap = {
 };
 
 const Services = () => {
+  const { country, countryCode, formatPrice } = usePricing();
+
   return (
     <div className="min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -28,42 +32,67 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-sm font-bold mb-6">
+              <span>{country.flag}</span>
+              <span>Prices shown in {country.currency} ({country.currencySymbol})</span>
+            </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Services</span>
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed">
+            <p className="text-xl text-slate-400 leading-relaxed mb-8">
               Comprehensive digital solutions to help your business grow and succeed online.
             </p>
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-500 items-center">
+              <span>All prices automatically adapted for {country.name}</span>
+              <span className="text-slate-700">•</span>
+              <CountryCurrencySwitcher variant="banner" />
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-slate-950">
+      <section className="py-16 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, i) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-                as={Link}
-                to={`/services/${service.slug}`}
-                className="group p-8 rounded-3xl bg-gradient-to-b from-white/5 to-white/0 border border-white/10 hover:border-white/20 transition-all"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {iconMap[service.icon]}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-slate-400 leading-relaxed mb-6">{service.description}</p>
-                <div className="text-blue-400 font-medium flex items-center gap-2">
-                  Learn More <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </motion.div>
-            ))}
+            {services.map((service, i) => {
+              const { raw, period } = getServicePriceInfo(service.priceKey, countryCode);
+              const displayPrice = raw === null
+                ? 'Custom pricing'
+                : `${formatPrice(raw)}${period}`;
+
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -8 }}
+                  as={Link}
+                  to={`/services/${service.slug}`}
+                  className="group p-8 rounded-3xl bg-gradient-to-b from-white/5 to-white/0 border border-white/10 hover:border-white/20 transition-all flex flex-col"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    {iconMap[service.icon]}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
+                  <p className="text-slate-400 leading-relaxed mb-6 flex-1">{service.description}</p>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div>
+                      <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">Starting from</div>
+                      <div className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                        {displayPrice}
+                      </div>
+                    </div>
+                    <div className="text-blue-400 font-medium flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                      Learn More <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -80,11 +109,15 @@ const Services = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600" />
             <div className="absolute inset-0 bg-slate-950/50" />
             <div className="relative p-12 md:p-16">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold mb-6">
+                <span>{country.flag}</span>
+                Local support for {country.name}
+              </div>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 Not Sure What You Need?
               </h2>
               <p className="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">
-                Let's discuss your project and find the best solution for your business.
+                Let's discuss your project and find the best solution for your business — with transparent {country.currency} pricing.
               </p>
               <Link
                 to="/contact"

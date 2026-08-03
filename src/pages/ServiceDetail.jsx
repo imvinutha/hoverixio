@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ChevronRight, ArrowUpRight, MessageCircle } from 'lucide-react';
-import { services } from '../data/services';
+import { CheckCircle2, ChevronRight, ArrowUpRight, MessageCircle, Globe2 } from 'lucide-react';
+import { services, getServicePriceInfo } from '../data/services';
 import { Layout, Code2, Smartphone, Palette, Cpu, ShoppingCart, Cloud, Server, Wrench } from 'lucide-react';
+import { usePricing } from '../utils/pricingContext';
+import CountryCurrencySwitcher from '../components/CountryCurrencySwitcher';
 
 const iconMap = {
   Layout: <Layout className="w-10 h-10 text-blue-400" />,
@@ -20,6 +22,7 @@ const iconMap = {
 const ServiceDetail = () => {
   const { slug } = useParams();
   const service = services.find(s => s.slug === slug);
+  const { country, countryCode, formatPrice } = usePricing();
 
   if (!service) {
     return (
@@ -34,16 +37,28 @@ const ServiceDetail = () => {
     );
   }
 
+  const { raw, period } = getServicePriceInfo(service.priceKey, countryCode);
+  const displayPrice = raw === null
+    ? 'Custom pricing'
+    : `${formatPrice(raw)}${period}`;
+
   return (
     <div className="min-h-screen pt-24">
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="flex items-center gap-2 text-sm text-slate-400">
-          <Link to="/" className="hover:text-white">Home</Link>
-          <ChevronRight className="w-4 h-4" />
-          <Link to="/services" className="hover:text-white">Services</Link>
-          <ChevronRight className="w-4 h-4" />
-          <span className="text-white">{service.title}</span>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-sm text-slate-400">
+            <Link to="/" className="hover:text-white">Home</Link>
+            <ChevronRight className="w-4 h-4" />
+            <Link to="/services" className="hover:text-white">Services</Link>
+            <ChevronRight className="w-4 h-4" />
+            <span className="text-white">{service.title}</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-400 text-sm">
+            <Globe2 className="w-4 h-4" />
+            <span className="font-bold text-white">{country.flag} {country.currency}</span>
+            <CountryCurrencySwitcher variant="navbar" />
+          </div>
         </div>
       </div>
 
@@ -87,9 +102,16 @@ const ServiceDetail = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-xl opacity-30" />
               <div className="relative bg-slate-900 rounded-3xl p-8 border border-white/10">
-                <div className="text-3xl font-bold text-white mb-2">{service.pricing}</div>
-                <div className="text-slate-400 mb-6">Starting from</div>
-                <div className="space-y-3">
+                <div className="text-xs uppercase tracking-wider text-slate-500 mb-1">Starting from · {country.name}</div>
+                <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400 mb-2">
+                  {displayPrice}
+                </div>
+                {raw !== null && (
+                  <div className="text-xs text-slate-500 mb-6">
+                    + {country.vatRate * 100}% {country.code === 'IN' ? 'GST' : 'VAT'} if applicable · Prices in {country.currency}
+                  </div>
+                )}
+                <div className="space-y-3 pt-4 border-t border-white/10">
                   {service.features.slice(0, 4).map((feature, i) => (
                     <div key={i} className="flex items-center gap-3 text-slate-300">
                       <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
@@ -192,11 +214,15 @@ const ServiceDetail = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600" />
             <div className="absolute inset-0 bg-slate-950/50" />
             <div className="relative p-12 md:p-16">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold mb-6">
+                <span>{country.flag}</span>
+                Quote in {country.currency}
+              </div>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-slate-200 mb-10 max-w-2xl mx-auto">
-                Let's work together to bring your vision to life. Contact us today for a free consultation.
+                Let's work together to bring your vision to life. Contact us today for a free consultation in {country.currency}.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
