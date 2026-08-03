@@ -61,10 +61,10 @@ const Pricing = () => {
                   <Zap className="w-5 h-5 text-blue-400" />
                   <span className="text-blue-400 font-bold">Fast Hosting FREE</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30">
                   <CheckCircle2 className="w-5 h-5 text-purple-400" />
-                  {/* <span className="text-purple-400 font-bold">SSL Certificate FREE</span> */}
-                </div>
+                  <span className="text-purple-400 font-bold">SSL Certificate FREE</span>
+                </div> */}
               </div>
             </div>
           </motion.div>
