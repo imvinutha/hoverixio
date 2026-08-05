@@ -20,7 +20,7 @@ import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
-import Careers from './pages/Careers';
+// import Careers from './pages/Careers';
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
-        <Route path="/careers" element={<Careers />} />
+        {/* <Route path="/careers" element={<Careers />} /> */}
       </Routes>
       <Footer />
       <FloatingWhatsApp />
