@@ -335,7 +335,7 @@ const IN_PRICES = {
   'Starter Website': 20000,
   'Business Website': 25000,
   'Premium Website': 45000,
-  'E-commerce Store': 80000,
+  'E-commerce Store': 99999,
   'Mobile App': 90000,
   'MERN Stack Training': 20000,
   'Full Stack Development Course': 25000,
