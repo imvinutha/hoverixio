@@ -34,6 +34,32 @@ function cn(...inputs) {
 const Home = () => {
   const { country, countryCode, formatPrice } = usePricing();
 
+  const homeFeaturedProjects = [
+    ...projects.filter((project) => project.featured),
+    {
+      id: 'medray-home-project',
+      title: 'Medray',
+      category: 'Hospital',
+      description: 'A healthcare platform built to help patients find the right medical support and services faster.',
+      tech: ['Healthcare', 'Web Design', 'Responsive UI'],
+      image: '/projects/laptopView/Screenshot 2026-05-16 005129.png',
+      featured: true,
+      siteUrl: 'https://medray.com',
+      homeOnly: true,
+    },
+    {
+      id: 'ramanjula-greens-home-project',
+      title: 'Ramanjula Greens',
+      category: 'Real Estate',
+      description: 'A property and community-focused website for showcasing residential lifestyle and green living.',
+      tech: ['Real Estate', 'Marketing', 'Web Design'],
+      image: '/image.png',
+      featured: true,
+      siteUrl: 'https://ramanjulagreens.com',
+      homeOnly: true,
+    }
+  ];
+
   const savingsAmount = {
     DE: 120, US: 120, AE: 450, MY: 550, SG: 160, IN: 5000
   }[countryCode] || 5000;
@@ -242,51 +268,67 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.filter(p => p.featured).map((project, i) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="group"
-              >
-                <div className="relative overflow-hidden rounded-3xl border border-white/10 hover:border-blue-500/30 transition-all">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-8">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium">
-                        {project.category}
-                      </span>
+            {homeFeaturedProjects.map((project, i) => {
+              const isExternal = Boolean(project.siteUrl && project.siteUrl.startsWith('http'));
+              const cardLink = isExternal ? project.siteUrl : `/portfolio/${project.id}`;
+
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -8 }}
+                  className="group"
+                >
+                  <div className="relative overflow-hidden rounded-3xl border border-white/10 hover:border-blue-500/30 transition-all">
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-slate-400 mb-6">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.slice(0, 3).map((tech, idx) => (
-                        <span key={idx} className="px-3 py-1 rounded-full bg-white/5 text-slate-300 text-sm">
-                          {tech}
+                    <div className="p-8">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-medium">
+                          {project.category}
                         </span>
-                      ))}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-slate-400 mb-6">{project.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {(project.tech || []).slice(0, 3).map((tech, idx) => (
+                          <span key={idx} className="px-3 py-1 rounded-full bg-white/5 text-slate-300 text-sm">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      {isExternal ? (
+                        <a
+                          href={cardLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-white font-semibold"
+                        >
+                          View Project <ArrowUpRight className="w-4 h-4" />
+                        </a>
+                      ) : (
+                        <Link 
+                          to={cardLink}
+                          className="inline-flex items-center gap-2 text-white font-semibold"
+                        >
+                          View Project <ArrowUpRight className="w-4 h-4" />
+                        </Link>
+                      )}
                     </div>
-                    <Link 
-                      to={`/portfolio/${project.id}`}
-                      className="inline-flex items-center gap-2 text-white font-semibold"
-                    >
-                      View Project <ArrowUpRight className="w-4 h-4" />
-                    </Link>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

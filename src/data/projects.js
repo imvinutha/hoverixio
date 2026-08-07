@@ -15,10 +15,11 @@ export const projects = [
     client: "Studio AR",
     year: "2024",
     featured: true,
+    siteUrl: "https://studioardesign.com",
   },
   {
     id: 2,
-    title: "GRT Jewellers",
+    title: "srilakshmi.com",
     category: "E-commerce",
     description: "An elegant online gold jewellery shopping platform with product showcase, cart functionality, and secure checkout.",
     tech: ["Next.js", "Stripe", "Supabase", "Tailwind CSS"],
@@ -31,6 +32,7 @@ export const projects = [
     client: "GRT Jewellers",
     year: "2024",
     featured: true,
+    siteUrl: "https://srilakshmi.com",
   },
   {
     id: 3,
