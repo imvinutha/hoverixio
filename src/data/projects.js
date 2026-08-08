@@ -19,7 +19,7 @@ export const projects = [
   },
   {
     id: 2,
-    title: "srilakshmi.com",
+    title: "Aura Gold Jewellery",
     category: "E-commerce",
     description: "An elegant online gold jewellery shopping platform with product showcase, cart functionality, and secure checkout.",
     tech: ["Next.js", "Stripe", "Supabase", "Tailwind CSS"],
@@ -32,7 +32,7 @@ export const projects = [
     client: "GRT Jewellers",
     year: "2024",
     featured: true,
-    siteUrl: "https://srilakshmi.com",
+    siteUrl: "https://aura-theta-virid.vercel.app/",
   },
   {
     id: 3,
